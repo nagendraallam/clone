@@ -11,7 +11,7 @@ export default function User() {
     document.addEventListener("keydown", function (e) {
       if (e.key === "ArrowLeft") {
         setKeyboardSelection((num) => {
-          if (num == 0) {
+          if (num === 0) {
             return user.length - 1;
           } else {
             return num - 1;
@@ -19,7 +19,7 @@ export default function User() {
         });
       } else if (e.key === "ArrowRight") {
         setKeyboardSelection((num) => {
-          if (num == user.length - 1) {
+          if (num === user.length - 1) {
             return 0;
           } else {
             return num + 1;
@@ -30,24 +30,26 @@ export default function User() {
   }, []);
 
   return (
-    <div className="w-screen h-screen flex flex-col bg-[#141414] ">
-      <div className="flex flex-row">
+    <div className="overflow-hidden w-screen h-fit flex flex-col bg-[#141414] ">
+      <div className="flex flex-row justify-center sm:justify-start">
         <img
-          className="w-24 ml-12"
+          className="w-24 sm:ml-11"
           src="/clone/images/netflix.png"
           alt="logo"
         />
       </div>
-      <div className="h-full flex flex-col mt-20 items-center">
-        <h1 className="text-white text-6xl">Who's Watching?</h1>
-        <div className="flex flex-row justify-center items-center mt-9">
+      <div className="animate-[dropDown_0.3s_ease-in-out] h-full flex flex-col mt-20 items-center">
+        <h1 className="text-white text-2xl md:text-2xl xl:text-4xl">
+          Who's Watching?
+        </h1>
+        <div className="grid grid-cols-2 sm:grid-cols-5 mt-9">
           {user.map((user, index) => {
             return (
               <Users
                 key={index}
                 user={user.user}
                 image={user.image}
-                selected={index == keyboardSelection && selected}
+                selected={index === keyboardSelection && selected}
                 onHover={() => {
                   setSelected(false);
                   clearTimeout(timeout);
@@ -62,7 +64,7 @@ export default function User() {
             );
           })}
         </div>
-        <div className="border mt-40 border-gray-400 text-gray-400 pl-16 pr-16 pt-2 pb-2 text-2xl hover:cursor-pointer hover:border-white hover:text-white">
+        <div className="border mb-10 mt-10 border-gray-400 text-gray-400 pl-8 pr-8 pt-1 pb-1 sm:mt-40 sm:pt-2 sm:pb-2 sm:pr-16 sm:pl-16 text-lg md:text-xl hover:cursor-pointer hover:border-white hover:text-white">
           Manage Profiles
         </div>
       </div>
