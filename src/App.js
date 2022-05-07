@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 function App() {
+  console.log("sad");
   return (
     <div className="h-screen flex flex-col items-center justify-center">
       <h1 className="font-bold text-3xl">Find links to all clone webpages</h1>

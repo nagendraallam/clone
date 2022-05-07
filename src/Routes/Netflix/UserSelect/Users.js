@@ -14,9 +14,11 @@ export default function Users(props) {
           props.selected ? "border-white" : "border-transparent"
         } hover:border-white border-4 w-40 rounded-md`}
         alt="userImage"
-        src={`/images/${props.image}`}
+        src={`/clone/images/${props.image}`}
       />
-      <h4 className="w-40 mt-1 text-2xl text-center text-[#fff]">{props.user}</h4>
+      <h4 className="w-40 mt-1 text-2xl text-center text-[#fff]">
+        {props.user}
+      </h4>
     </div>
   );
 }

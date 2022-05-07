@@ -32,7 +32,11 @@ export default function User() {
   return (
     <div className="w-screen h-screen flex flex-col bg-[#141414] ">
       <div className="flex flex-row">
-        <img className="w-24 ml-12" src="/images/netflix.png" alt="logo" />
+        <img
+          className="w-24 ml-12"
+          src="/clone/images/netflix.png"
+          alt="logo"
+        />
       </div>
       <div className="h-full flex flex-col mt-20 items-center">
         <h1 className="text-white text-6xl">Who's Watching?</h1>
