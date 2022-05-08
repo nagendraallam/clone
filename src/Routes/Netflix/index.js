@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import UserSelect from "./UserSelect";
+import Home from "./HomePage";
 
 export default function Netflix() {
+  const [userSelected, setUserSelected] = useState(false);
+
   useEffect(() => {
     document.getElementById("titleLogo").href = "/clone/images/n.png";
     document.title = "Netflix";
@@ -9,7 +12,15 @@ export default function Netflix() {
 
   return (
     <div className="h-screen bg-[#141414]">
-      <UserSelect />
+      {userSelected ? (
+        <Home />
+      ) : (
+        <UserSelect
+          selected={() => {
+            setUserSelected(true);
+          }}
+        />
+      )}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Users from "./Users";
 import { user } from "../../../Data/netflixData";
 
-export default function User() {
+export default function User(props) {
   const [selected, setSelected] = useState(true);
   const [keyboardSelection, setKeyboardSelection] = useState(0);
   var timeout;
@@ -45,22 +45,28 @@ export default function User() {
         <div className="grid grid-cols-2 sm:grid-cols-5 mt-9">
           {user.map((user, index) => {
             return (
-              <Users
-                key={index}
-                user={user.user}
-                image={user.image}
-                selected={index === keyboardSelection && selected}
-                onHover={() => {
-                  setSelected(false);
-                  clearTimeout(timeout);
+              <div
+                onClick={() => {
+                  props.selected();
                 }}
-                onHoverStop={() => {
-                  clearTimeout(timeout);
-                  timeout = setTimeout(() => {
-                    setSelected(true);
-                  }, 100);
-                }}
-              />
+              >
+                <Users
+                  key={index}
+                  user={user.user}
+                  image={user.image}
+                  selected={index === keyboardSelection && selected}
+                  onHover={() => {
+                    setSelected(false);
+                    clearTimeout(timeout);
+                  }}
+                  onHoverStop={() => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => {
+                      setSelected(true);
+                    }, 100);
+                  }}
+                />
+              </div>
             );
           })}
         </div>
