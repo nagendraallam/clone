@@ -4,6 +4,7 @@ import Navbar from "../Navbar";
 
 export default function Home() {
   const [discover, setDiscover] = useState([]);
+  const [first, setFirst] = useState({});
 
   useEffect(() => {
     axios
@@ -13,11 +14,26 @@ export default function Home() {
       .then((res) => {
         console.log(res.data);
         setDiscover(res.data.results);
+        axios
+          .get(
+            `https://api.themoviedb.org/3/movie/${res.data.results[0].id}/videos?api_key=df443c594e7ca520831be097f9d6aec8&language=en-US`
+          )
+          .then((res) => {
+            console.log(res.data);
+            setFirst({ ...res.data.results[0], videos: res.data.results });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  useEffect(() => {
+    console.log(first);
+  }, [first]);
 
   return (
     <div>
@@ -31,9 +47,13 @@ export default function Home() {
         );
       })} */}
       </div>
-      <video className="w-full h-full" zoom="1.5" autoPlay>
-        <source src="/clone/video/trailer.mp4" type="video/mp4" />
-      </video>
+      <iframe
+        className="w-full fixed h-[80vh]"
+        src={
+          first.videos &&
+          `https://www.youtube.com/embed/${first.videos[0].key}?rel=0&autoplay=1&controls=0`
+        }
+      ></iframe>
     </div>
   );
 }

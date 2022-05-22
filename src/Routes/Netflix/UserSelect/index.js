@@ -46,12 +46,12 @@ export default function User(props) {
           {user.map((user, index) => {
             return (
               <div
+                key={index}
                 onClick={() => {
                   props.selected();
                 }}
               >
                 <Users
-                  key={index}
                   user={user.user}
                   image={user.image}
                   selected={index === keyboardSelection && selected}
