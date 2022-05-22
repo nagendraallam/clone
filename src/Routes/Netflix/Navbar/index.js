@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <div className="bg-gradient-to-b from-black  flex flex-row align-center text-center justify-between">
+    <div className="bg-gradient-to-b from-black absolute w-[100%] flex flex-row align-center text-center justify-between">
       <div className="flex flex-row">
         <img
           className="w-1/6 sm:w-20 ml-2"

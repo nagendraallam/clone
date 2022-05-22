@@ -8,6 +8,7 @@ export default function User(props) {
   var timeout;
 
   useEffect(() => {
+    document.body.style.backgroundColor = "#141414";
     document.addEventListener("keydown", function (e) {
       if (e.key === "ArrowLeft") {
         setKeyboardSelection((num) => {

@@ -11,7 +11,7 @@ export default function Netflix() {
   });
 
   return (
-    <div className="h-screen bg-[#141414]">
+    <div className="h-screen">
       {userSelected ? (
         <Home />
       ) : (
