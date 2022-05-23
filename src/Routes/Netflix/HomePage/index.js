@@ -46,42 +46,43 @@ export default function Home() {
       <div className="flex h-fit absolute flex-col z-30">
         <Navbar />
         <div>
-          <h2 className="text-white mt-[30vh] sm:mt-[80vh] sm:text-2xl sm:ml-[5vh] ml-3">
+          <h2 className="text-white mt-[30vh] sm:mt-[80vh] sm:text-2xl sm:pl-[5vh] pl-3">
             Popular on netflix
           </h2>
-          <div className="flex flex-row container overflow-scroll sm:ml-[5vh] box-content pr-3">
-            {discover.map((movie) => {
+          <div className="flex flex-row overflow-auto ">
+            {discover.map((movie, index) => {
               return (
                 <img
-                  className="w-[40vw] sm:w-[20vw] mt-2 ml-2 mr-2"
+                  className="w-[40vw] sm:w-[20vw] mt-2 pl-2 pr-2"
                   src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                   alt="movie poster"
                 />
               );
             })}
           </div>
-          <h2 className="text-white mt-[1vh] sm:mt-[2vh] sm:text-2xl sm:ml-[5vh] ml-3">
+
+          <h2 className="text-white mt-[30vh] sm:mt-[2vh] sm:text-2xl sm:pl-[5vh] pl-3">
             Trending Now
           </h2>
-          <div className="flex flex-row w-[95vw] container overflow-scroll sm:ml-[5vh] box-content pr-3">
-            {discover.map((movie) => {
+          <div className="flex flex-row overflow-auto ">
+            {discover.map((movie, index) => {
               return (
                 <img
-                  className="w-[40vw] sm:w-[20vw] mt-2 ml-2 mr-2"
+                  className="w-[40vw] sm:w-[20vw] mt-2 pl-2 pr-2"
                   src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                   alt="movie poster"
                 />
               );
             })}
           </div>
-          <h2 className="text-white mt-[1vh] sm:mt-[2vh] sm:text-2xl sm:ml-[5vh] ml-3">
-            Continue watching for Nagi
+          <h2 className="text-white mt-[30vh] sm:mt-[2vh] sm:text-2xl sm:pl-[5vh] pl-3">
+            Continue wawtching for Nagi
           </h2>
-          <div className="flex flex-row  container overflow-scroll sm:ml-[5vh] box-content pr-3">
-            {discover.map((movie) => {
+          <div className="flex flex-row overflow-auto ">
+            {discover.map((movie, index) => {
               return (
                 <img
-                  className="w-[40vw] sm:w-[15vw] mt-2 ml-2 mr-2"
+                  className="w-[40vw] sm:w-[20vw] mt-2 pl-2 pr-2"
                   src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                   alt="movie poster"
                 />
