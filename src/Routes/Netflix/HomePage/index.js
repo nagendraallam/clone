@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
+import MovieWindow from "../../../Components/MovieWindow";
 
 export default function Home() {
   const [discover, setDiscover] = useState([]);
@@ -55,25 +56,26 @@ export default function Home() {
           `https://www.youtube.com/embed/${first.videos[0].key}?rel=0&autoplay=1&controls=0`
         }
       ></iframe>
+
+
       <div className="flex h-fit absolute flex-col z-30">
         <Navbar />
         <div>
           <h2 className="text-white mt-[30vh] sm:mt-[90vh] sm:text-2xl sm:pl-[20vh] pl-3">
             Popular on netflix
           </h2>
-          <div className="flex flex-row overflow-auto sm:pl-[5vw] ">
+          <div className="flex flex-row w-screen sm:pl-[5vw] mb-[100vw] ">
             {discover.map((movie, index) => {
               return (
-                <img
+                <MovieWindow
                   key={index + "1"}
-                  className="w-[40vw] sm:w-[20vw] mt-2 pl-2 pr-2"
-                  src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-                  alt="movie poster"
+                  imageLink={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+                  data={movie}
                 />
               );
             })}
           </div>
-
+          {/* 
           <h2 className="text-white mt-[30vh] sm:mt-[2vh] sm:text-2xl sm:pl-[20vh] pl-3">
             Trending Now
           </h2>
@@ -103,7 +105,7 @@ export default function Home() {
                 />
               );
             })}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
